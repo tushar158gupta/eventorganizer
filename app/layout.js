@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import Header from '@/components/Header'
 import { ConvexClientProvider } from './ConvexClientProvider'
 import { ClerkProvider } from '@clerk/nextjs'
+import { dark } from '@clerk/themes'
 
 export const metadata = {
   title: 'Tspot - Events Platform',
@@ -12,7 +13,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        theme: dark,
+      }}
+    >
       <html lang="en" suppressHydrationWarning={true}>
         <body className={`bg-linear-to-br from-gray-950 via-zinc-900 to-stone-900 text-white`}>
           <ThemeProvider
